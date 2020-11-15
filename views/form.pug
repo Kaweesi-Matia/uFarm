@@ -1,0 +1,40 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Register  
+    form(method="POST" action='/')
+        div.form-row
+            div.col.form-group
+                label First name 
+                input.form-control(name="firstname")
+            div.col.form-group
+                label Last name
+                input.form-control(name="lastname")
+            div.col.form-group
+                label User name
+                input.form-control(name="username")
+        div.form-row
+            div.col.form-group
+                label.form-check.form-check-inline
+                    input.form-check-input(type="radio" name="gender" value="female")
+                    span.form-check-label Female 
+                label.form-check.form-check-inline
+                    input.form-check-input(type="radio" name="gender" value="male")
+                    span.form-check-label Male 
+        div.form-row
+            div.col.form-group
+                label Country 
+                input.form-control(name="country")
+            div.col.form-group
+                label City
+                select.form-control(name="city")
+                    option(value="Mbarara") Mbarara
+                    option(value="Kampala") Kampala
+                    option(value="Ruk") Ruk
+        div.form-row
+            div.col.form-group
+                label Create Password
+                input.form-control(type="password" name="password")
+        div.form-row
+            div.col.form-group
+                button.btn.btn-primary.btn-block Register

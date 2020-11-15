@@ -1,0 +1,45 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Welcome 
+    |&nbsp
+    div.form-row
+        div.col.form-group.col-md-10    
+            form.search(action='/userlist')
+                div.form-row
+                    div.col-md-8
+                        input.form-control(name='gender' placeholder="Enter your search term(gender) ...")
+                    div.col-md-4
+                        input.btn.btn-dark.btn-block(type="submit")
+    table.table
+        thead.thead-dark
+            tr
+                th Firstname
+                th Lastname
+                th Username
+                th Gender
+                th Country
+                th Numbers
+                th City
+                th 
+                th 
+        tbody
+            if users.length
+            each user in users
+                tr
+                    td #{user.firstname}
+                    td #{user.lastname}
+                    td #{user.username}
+                    td #{user.gender}
+                    td #{user.lastname}
+                    td #{user.numbers}
+                    td #{user.city}
+                    td
+                        //- a(href='/update/'+user._id) Update
+                    td
+                        form(method="post" action='/delete')
+                            input(type="hidden", placeholder="", name="id", value=user._id)
+                            button.btn.btn-dark.btn-block(type="submit") Delete
+            else
+                p No registrations yet :(
+

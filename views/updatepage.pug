@@ -1,0 +1,42 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Welcome
+    p Here is your information
+        form(method="post" action="/update?id="+user._id)
+            table.table
+                thead.thead-dark
+                    tr
+                        th Firstname
+                        td 
+                            input.form-control(value = user.firstname name ="firstname")
+                    tr
+                        th Lastname
+                        td 
+                            input.form-control(value = user.lastname name ="lastname")
+                    tr
+                        th Username
+                        td 
+                            input.form-control(value = user.username name ="username")
+                    tr
+                        th Gender
+                        td 
+                            label Male&nbsp
+                            input(value= "male" type="radio" checked = user.gender==="male" name="gender") 
+                            label &nbspFemale&nbsp
+                            input(value= "female" type="radio" checked = user.gender==="female" name="gender")
+                    
+                    tr
+                        th Country
+                        td 
+                            input.form-control(value = user.country name ="country")
+                    tr
+                        th City
+                        td 
+                            select.form-control(name="city")  
+                                option(value="Mbarara" selected = user.city === "Mbarara") Mbarara
+                                option(value="Kampala" selected = user.city === "Kampala") Kampala
+                                option(value="Ruk" selected = user.city === "Ruk") Ruk
+                    tr 
+                        td(colspan="2")
+                            button.btn.btn-dark.btn-block(type="submit") Update
